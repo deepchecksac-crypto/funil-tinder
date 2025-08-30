@@ -3,9 +3,9 @@ import type { Metadata } from "next"
 import "./globals.css"
 
 export const metadata: Metadata = {
-  title: "v0 App",
-  description: "Created with v0",
-  generator: "v0.dev",
+  title: "DeepCheck AI - Anonymous Dating Profile Investigation",
+  description: "Discover the truth about dating profiles with advanced AI detection. 100% anonymous and secure.",
+  generator: "DeepCheck AI",
 }
 
 export default function RootLayout({

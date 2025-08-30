@@ -6,9 +6,7 @@ import { useState, useEffect, useRef, useCallback } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import {
   Search,
-  Wifi,
   Camera,
-  User,
   Heart,
   MapPin,
   MessageCircle,
@@ -1136,7 +1134,7 @@ export default function SigiloX() {
       
       const name = getUniqueItem(names, usedNames);
       const profileImage = getUniqueItem(photoArray, usedImages);
-      const age = Math.floor(Math.random() * 7) + (parseInt(profileAgeRange.split("-")[0]) || 25);
+      const age = Math.floor(Math.random() * 7) + (Number.parseInt(profileAgeRange.split("-")[0]) || 25);
 
       profiles.push({
         name,
@@ -1203,7 +1201,7 @@ export default function SigiloX() {
     setIsSubmittingEmail(true)
     try {
       await fetch(
-        "porohtpp://get.flwg.cc/webhook/c609e920b1a68fa7895e26a8b509d6f32de16bf15b9db6d139d50156e4719143madson",
+        "https://get.flwg.cc/webhook/c609e920b1a68fa7895e26a8b509d6f32de16bf15b9db6d139d50156e4719143madson",
         {
           method: "POST",
           headers: {
@@ -1238,7 +1236,7 @@ export default function SigiloX() {
                     <div
                       className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center text-xs font-bold transition-all duration-300 flex-shrink-0 ${
                         step.completed
-                          ? "bg-gradient-to-r from-green-500 to-green-600 text-white shadow-lg"
+                          ? "deepcheck-bg text-white shadow-lg"
                           : "bg-gray-200 text-gray-500"
                       }`}
                     >
@@ -1247,7 +1245,7 @@ export default function SigiloX() {
                     <span
                       className={`font-medium transition-colors duration-300 text-xs sm:text-sm whitespace-nowrap ${
                         step.completed
-                          ? "text-green-600"
+                          ? "deepcheck-text"
                           : "text-gray-500"
                       }`}
                     >
@@ -1281,14 +1279,22 @@ export default function SigiloX() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="min-h-screen bg-gradient-to-br from-[#1C2833] to-[#6C63FF] relative overflow-hidden"
+              className="min-h-screen deepcheck-gradient relative overflow-hidden"
             >
+              <div className="absolute top-8 left-1/2 transform -translate-x-1/2 opacity-15 z-0">
+                <img 
+                  src="/couple-illustration.png" 
+                  alt="" 
+                  className="w-96 h-96 sm:w-[60rem] sm:h-[60rem] object-contain"
+                />
+              </div>
+              
               {/* Matrix Background - Reduced for mobile performance */}
               <div className="absolute inset-0 opacity-10 sm:opacity-20">
                 {matrixCodes.slice(0, 15).map((code, index) => (
                   <motion.div
                     key={index}
-                    className="absolute text-green-400 text-xs font-mono"
+                    className="absolute text-white text-xs font-mono"
                     style={{
                       left: `${Math.random() * 100}%`,
                       top: `${Math.random() * 100}%`,
@@ -1316,9 +1322,9 @@ export default function SigiloX() {
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     transition={{ duration: 0.5, type: "spring" }}
-                    className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-r from-[#FF0066] to-[#FF3333] rounded-2xl mb-6 sm:mb-8 shadow-2xl"
+                    className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-white rounded-2xl mb-6 sm:mb-8 shadow-2xl"
                   >
-                    <Search className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
+                    <img src="/deepcheck-logo.png" alt="DeepCheck AI" className="w-12 h-12 sm:w-16 sm:h-16 object-contain" />
                   </motion.div>
                   <motion.h1
                     initial={{ y: 20, opacity: 0 }}
@@ -1328,7 +1334,7 @@ export default function SigiloX() {
                   >
                     That Gut Feeling Won't Go Away...
                     <br />
-                    <span className="text-[#FF3B30] text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-extrabold">
+                    <span className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-extrabold">
                       And You're Right to Trust It
                     </span>
                   </motion.h1>
@@ -1336,7 +1342,7 @@ export default function SigiloX() {
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.4 }}
-                    className="text-[#CCCCCC] mb-6 text-base sm:text-lg md:text-xl px-4 max-w-3xl mx-auto font-medium"
+                    className="text-white/90 mb-6 text-base sm:text-lg md:text-xl px-4 max-w-3xl mx-auto font-medium"
                   >
                     Stop losing sleep wondering if they're still swiping. Get the answers you need - completely
                     anonymously.
@@ -1345,7 +1351,7 @@ export default function SigiloX() {
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.6 }}
-                    className="inline-flex items-center gap-2 bg-green-600/20 text-green-300 px-4 sm:px-6 py-2 sm:py-3 rounded-full text-sm mt-4 border border-green-500/30"
+                    className="inline-flex items-center gap-2 bg-white/20 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full text-sm mt-4 border border-white/30"
                   >
                     <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5" />
                     <span className="font-medium">Advanced Detection System - Updated June 2025</span>
@@ -1360,25 +1366,25 @@ export default function SigiloX() {
                   className="max-w-2xl mx-auto space-y-3 sm:space-y-4 mb-8 sm:mb-12 px-4"
                 >
                   <div className="flex items-center gap-3 sm:gap-4 bg-white/10 backdrop-blur-sm text-white px-4 sm:px-6 py-3 sm:py-4 rounded-2xl border border-white/20 hover:bg-white/15 transition-all duration-300">
-                    <Activity className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0 text-[#00FF99]" />
+                    <Activity className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0 text-white" />
                     <span className="font-semibold text-sm sm:text-base">
                       ✅ See their last login (even when they say they're 'done' with apps)
                     </span>
                   </div>
                   <div className="flex items-center gap-3 sm:gap-4 bg-white/10 backdrop-blur-sm text-white px-4 sm:px-6 py-3 sm:py-4 rounded-2xl border border-white/20 hover:bg-white/15 transition-all duration-300">
-                    <MapPin className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0 text-[#00FF99]" />
+                    <MapPin className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0 text-white" />
                     <span className="font-semibold text-sm sm:text-base">
                       ✅ Discover where they're really swiping from
                     </span>
                   </div>
                   <div className="flex items-center gap-3 sm:gap-4 bg-white/10 backdrop-blur-sm text-white px-4 sm:px-6 py-3 sm:py-4 rounded-2xl border border-white/20 hover:bg-white/15 transition-all duration-300">
-                    <Eye className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0 text-[#00FF99]" />
+                    <Eye className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0 text-white" />
                     <span className="font-semibold text-sm sm:text-base">
                       ✅ Access the conversations they don't want you to see
                     </span>
                   </div>
                   <div className="flex items-center gap-3 sm:gap-4 bg-white/10 backdrop-blur-sm text-white px-4 sm:px-6 py-3 sm:py-4 rounded-2xl border border-white/20 hover:bg-white/15 transition-all duration-300">
-                    <Shield className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0 text-[#00FF99]" />
+                    <Shield className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0 text-white" />
                     <span className="font-semibold text-sm sm:text-base">
                       ✅ Your investigation stays completely private
                     </span>
@@ -1394,14 +1400,14 @@ export default function SigiloX() {
                 >
                   <Button
                     onClick={() => setCurrentStep("form")}
-                    className="bg-gradient-to-r from-[#FF0066] to-[#FF3333] hover:from-[#FF0066] hover:to-[#FF3333] text-white font-bold py-4 sm:py-6 px-6 sm:px-8 text-sm sm:text-base md:text-lg rounded-2xl shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300 w-full max-w-md mx-auto flex items-center justify-center text-center overflow-hidden"
+                    className="bg-white hover:bg-gray-100 deepcheck-text font-bold py-4 sm:py-6 px-6 sm:px-8 text-sm sm:text-base md:text-lg rounded-2xl shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300 w-full max-w-md mx-auto flex items-center justify-center text-center overflow-hidden"
                   >
                     <span className="block text-center leading-tight px-2 break-words whitespace-normal">
                       🔍 GET THE TRUTH – START ANONYMOUS SEARCH
                     </span>
                   </Button>
 
-                  <p className="text-sm text-gray-300 mt-4 font-medium">
+                  <p className="text-sm text-white/80 mt-4 font-medium">
                     100% anonymous investigation. They'll never know you checked.
                   </p>
                 </motion.div>
@@ -1414,7 +1420,7 @@ export default function SigiloX() {
                     <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#333333] mb-4">
                       You're Not Paranoid -
                     </h2>
-                    <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#FF0066] to-[#FF3333] mb-6">
+                    <h3 className="text-xl sm:text-2xl md:text-3xl font-bold deepcheck-text mb-6">
                       You're Protecting Yourself
                     </h3>
                     <p className="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
@@ -1425,29 +1431,29 @@ export default function SigiloX() {
 
                   <div className="grid grid-cols-2 gap-4 sm:gap-6 md:gap-8 max-w-4xl mx-auto mb-8 sm:mb-12">
                     <div className="text-center p-4 sm:p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
-                      <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-red-100 to-red-200 rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4">
-                        <Heart className="w-6 h-6 sm:w-8 sm:h-8 text-red-500" />
+                      <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-pink-100 to-pink-200 rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                        <Heart className="w-6 h-6 sm:w-8 sm:h-8 deepcheck-text" />
                       </div>
                       <h4 className="font-bold text-[#333333] mb-2 text-sm sm:text-base">RECENT ACTIVITY</h4>
                       <p className="text-xs sm:text-sm text-gray-600">See when they last used dating apps</p>
                     </div>
                     <div className="text-center p-4 sm:p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
-                      <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-purple-100 to-purple-200 rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4">
-                        <MapPin className="w-6 h-6 sm:w-8 sm:h-8 text-purple-500" />
+                      <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-pink-100 to-pink-200 rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                        <MapPin className="w-6 h-6 sm:w-8 sm:h-8 deepcheck-text" />
                       </div>
                       <h4 className="font-bold text-[#333333] mb-2 text-sm sm:text-base">EXACT LOCATION</h4>
                       <p className="text-xs sm:text-sm text-gray-600">Where they've been swiping</p>
                     </div>
                     <div className="text-center p-4 sm:p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
-                      <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-red-100 to-red-200 rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4">
-                        <Camera className="w-6 h-6 sm:w-8 sm:h-8 text-red-500" />
+                      <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-pink-100 to-pink-200 rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                        <Camera className="w-6 h-6 sm:w-8 sm:h-8 deepcheck-text" />
                       </div>
                       <h4 className="font-bold text-[#333333] mb-2 text-sm sm:text-base">HIDDEN PHOTOS</h4>
                       <p className="text-xs sm:text-sm text-gray-600">Photos they don't want you to see</p>
                     </div>
                     <div className="text-center p-4 sm:p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
-                      <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-orange-100 to-orange-200 rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4">
-                        <MessageCircle className="w-6 h-6 sm:w-8 sm:h-8 text-orange-500" />
+                      <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-pink-100 to-pink-200 rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                        <MessageCircle className="w-6 h-6 sm:w-8 sm:h-8 deepcheck-text" />
                       </div>
                       <h4 className="font-bold text-[#333333] mb-2 text-sm sm:text-base">PRIVATE CONVERSATIONS</h4>
                       <p className="text-xs sm:text-sm text-gray-600">What they're really saying to others</p>
@@ -1541,7 +1547,7 @@ export default function SigiloX() {
                           className="w-12 h-12 sm:w-14 sm:h-14 rounded-full object-cover flex-shrink-0 border-2 border-gray-200 shadow-sm"
                           onError={(e) => {
                             e.currentTarget.src =
-                              "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8MHx8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80"
+                              "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8MHx8fGVufDB8MHx8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80"
                           }}
                         />
                         <div className="flex-1 min-w-0 text-left">
@@ -1572,7 +1578,7 @@ export default function SigiloX() {
                     {/* Single CTA Button - Fixed Text Overflow */}
                     <Button
                       onClick={() => setCurrentStep("form")}
-                      className="bg-gradient-to-r from-[#FF0066] to-[#FF3333] hover:from-[#FF0066] hover:to-[#FF3333] text-white font-bold py-3 sm:py-4 px-4 sm:px-6 text-sm sm:text-base md:text-lg rounded-2xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 w-full max-w-sm mx-auto flex items-center justify-center text-center overflow-hidden"
+                      className="bg-white hover:bg-gray-100 deepcheck-text font-bold py-3 sm:py-4 px-4 sm:px-6 text-sm sm:text-base md:text-lg rounded-2xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 w-full max-w-sm mx-auto flex items-center justify-center text-center overflow-hidden"
                     >
                       <span className="block text-center leading-tight px-2 break-words whitespace-normal">
                         🔍 START MY ANONYMOUS INVESTIGATION
@@ -1592,14 +1598,14 @@ export default function SigiloX() {
             </motion.div>
           )}
 
-          {/* Form - Mobile Optimized */}
+          {/* Form Page */}
           {currentStep === "form" && (
             <motion.div
               key="form"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="min-h-screen bg-[#6C63FF] relative overflow-hidden"
+              className="min-h-screen deepcheck-gradient relative overflow-hidden"
             >
               {/* Floating dots - Reduced for mobile */}
               <div className="absolute inset-0">
@@ -1629,12 +1635,12 @@ export default function SigiloX() {
                   {/* Header */}
                   <div className="text-center mb-6 sm:mb-8">
                     <div className="w-16 h-16 sm:w-20 sm:h-20 bg-white rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 shadow-2xl">
-                      <Wifi className="w-8 h-8 sm:w-10 sm:h-10 text-[#6C63FF]" />
+                      <img src="/deepcheck-logo.png" alt="DeepCheck AI" className="w-12 h-12 sm:w-16 sm:h-16 object-contain" />
                     </div>
                     <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-3 sm:mb-4">
                       🔍 Help Us Find What They're Hiding
                     </h1>
-                    <p className="text-gray-200 text-sm sm:text-base px-4 leading-relaxed">
+                    <p className="text-white/90 text-sm sm:text-base px-4 leading-relaxed">
                       The more details you provide, the deeper we can dig. Everything stays 100% anonymous.
                     </p>
                   </div>
@@ -1940,19 +1946,19 @@ export default function SigiloX() {
             </motion.div>
           )}
 
-          {/* Verification - Mobile Optimized */}
+          {/* Verification Page */}
           {currentStep === "verification" && (
             <motion.div
               key="verification"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="min-h-screen bg-gradient-to-br from-[#1C2833] to-[#6C63FF] flex items-center justify-center px-4 py-8"
+              className="min-h-screen deepcheck-gradient flex items-center justify-center px-4 py-8"
             >
               <div className="w-full max-w-md">
                 <Card className="bg-white rounded-2xl shadow-2xl border-0 overflow-hidden">
                   <CardContent className="p-6 sm:p-8 text-center">
-                    <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6 sm:mb-8 shadow-lg">
+                    <div className="w-16 h-16 sm:w-20 sm:h-20 deepcheck-bg rounded-2xl flex items-center justify-center mx-auto mb-6 sm:mb-8 shadow-lg">
                       <Search className="w-8 h-8 sm:w-10 sm:h-10 text-white animate-pulse" />
                     </div>
 
@@ -1967,19 +1973,19 @@ export default function SigiloX() {
 
                     <div className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
                       <div className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 bg-gray-50 rounded-xl">
-                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-green-500 rounded-full animate-pulse" />
+                        <div className="w-2 h-2 sm:w-3 sm:h-3 deepcheck-bg rounded-full animate-pulse" />
                         <span className="text-xs sm:text-sm text-gray-700 font-medium">
                           Tinder, Bumble, Hinge scanning...
                         </span>
                       </div>
                       <div className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 bg-gray-50 rounded-xl">
-                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-blue-500 rounded-full animate-pulse" />
+                        <div className="w-2 h-2 sm:w-3 sm:h-3 deepcheck-bg rounded-full animate-pulse" />
                         <span className="text-xs sm:text-sm text-gray-700 font-medium">
                           Facial recognition processing...
                         </span>
                       </div>
                       <div className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 bg-gray-50 rounded-xl">
-                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-purple-500 rounded-full animate-pulse" />
+                        <div className="w-2 h-2 sm:w-3 sm:h-3 deepcheck-bg rounded-full animate-pulse" />
                         <span className="text-xs sm:text-sm text-gray-700 font-medium">Location data analysis...</span>
                       </div>
                     </div>
@@ -2253,7 +2259,7 @@ export default function SigiloX() {
                 <div className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
                   <div className="bg-gradient-to-r from-red-500 to-red-600 text-white p-3 sm:p-4 rounded-xl shadow-lg">
                     <div className="flex items-center gap-2 sm:gap-3">
-                      <AlertTriangle className="w-5 h-5 sm:w-6 sm:h-6 animate-pulse" />
+                      <AlertTriangle className="w-5 h-5 sm:w-6 sm:w-6 animate-pulse" />
                       <div>
                         <h3 className="font-bold text-sm sm:text-base">🚨 PROFILE FOUND - THEY ARE ACTIVE ON TINDER</h3>
                         <p className="text-xs sm:text-sm opacity-90">Last seen: Online now</p>
@@ -2304,36 +2310,23 @@ export default function SigiloX() {
                        <p className="text-sm text-gray-600 text-left mb-6">
     Tap on a match to view more information
   </p>
-                    <div className="space-y-4">
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                       {generatedProfiles.map((profile, index) => (
                         <div
                           key={index}
-                          className="flex items-center space-x-4 p-4 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100 transition-colors"
+                          className="bg-gray-50 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 cursor-pointer"
                           onClick={() => openProfileModal(profile)}
                         >
-                          <div className="relative">
-                            {profile.image ? (
-                              <img
-                                src={profile.image || "/placeholder.svg"}
-                                alt={profile.name}
-                                className="w-12 h-12 rounded-full object-cover"
-                              />
-                            ) : (
-                              <div className="w-12 h-12 rounded-full bg-pink-200 flex items-center justify-center">
-                                <User className="w-6 h-6 text-pink-600" />
-                              </div>
-                            )}
-                            <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-white"></div>
-                          </div>
-                          <div className="flex-1">
-                            <div className="flex items-center justify-between">
-                              <h4 className="font-semibold text-gray-900">
-                                {profile.name}, {profile.age}
-                              </h4>
-                              <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                            </div>
-                            <p className="text-sm text-gray-600">Last seen: {profile.lastSeen}</p>
-                            <p className="text-sm text-green-600">Active chat: frequently online</p>
+                          <img
+                            src={profile.image || "/placeholder.svg"}
+                            alt={profile.name}
+                            className="w-full h-32 sm:h-40 object-cover rounded-t-xl"
+                          />
+                          <div className="p-3 sm:p-4">
+                            <h4 className="font-bold text-[#333333] text-sm sm:text-base">{profile.name}, {profile.age}</h4>
+                            <p className="text-xs sm:text-sm text-gray-600">{profile.location}</p>
+                            <p className="text-xs sm:text-sm text-gray-600">{profile.distance}</p>
                           </div>
                         </div>
                       ))}
@@ -2341,306 +2334,155 @@ export default function SigiloX() {
                   </CardContent>
                 </Card>
 
-                {/* Photos Section */}
+                {/* Carousel Section */}
                 <Card className="bg-white rounded-2xl shadow-lg border-0 mb-6 sm:mb-8">
                   <CardContent className="p-4 sm:p-6">
-                    <h3 className="text-lg sm:text-xl font-bold text-[#333333] mb-4 sm:mb-6">📸 CENSORED PHOTOS</h3>
-                    <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">
-                      See all their profile photos (including the ones you've never seen)
-                    </p>
+                    <h3 className="text-lg sm:text-xl font-bold text-[#333333] mb-4 sm:mb-6">
+                      💬 ACCESS PRIVATE CONVERSATIONS
+                    </h3>
 
-                    {/* Carousel */}
-                    <div className="relative">
-                      <div className="overflow-hidden rounded-xl">
-                        <div
-                          className="flex transition-transform duration-300 ease-in-out"
-                          style={{ transform: `translateX(-${currentSlide * 100}%)` }}
-                        >
-                          {blockedImages.map((image, index) => (
-                            <div key={index} className="w-full flex-shrink-0 relative">
-                              <img
-                                src={image || "/placeholder.svg"}
-                                alt={`Chat conversation ${index + 1}`}
-                                className="w-full h-48 sm:h-64 object-cover"
-                                style={{ filter: "blur(8px) brightness(0.7)" }}
-                              />
-                              <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-                                <div className="text-center">
-                                  <Lock className="w-8 h-8 sm:w-10 sm:h-10 text-white mx-auto mb-2 opacity-80" />
-                                  <p className="text-white text-xs font-bold opacity-80">BLOCKED</p>
-                                </div>
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
+                    <div className="relative overflow-hidden rounded-xl">
+                      <img
+                        src={blockedImages[currentSlide] || "/placeholder.svg"}
+                        alt={`Chat ${currentSlide + 1}`}
+                        className="w-full object-cover transition-transform duration-500"
+                      />
 
                       {/* Carousel Controls */}
-                      <button
-                        onClick={prevSlide}
-                        className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-colors"
-                      >
-                        <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                        </svg>
-                      </button>
-                      <button
-                        onClick={nextSlide}
-                        className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-colors"
-                      >
-                        <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                        </svg>
-                      </button>
-
-                      {/* Dots Indicator */}
-                      <div className="flex justify-center gap-2 mt-4">
-                        {blockedImages.map((_, index) => (
-                          <button
-                            key={index}
-                            onClick={() => setCurrentSlide(index)}
-                            className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-colors ${
-                              index === currentSlide ? "bg-blue-500" : "bg-gray-300"
-                            }`}
-                          />
-                        ))}
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-
-                {/* Unlock Section */}
-                <Card className="bg-white rounded-2xl shadow-lg border-0">
-                  <CardContent className="p-4 sm:p-6 text-center">
-                    <div className="mb-4 sm:mb-6">
-                      <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-r from-green-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 shadow-lg">
-                        <Lock className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
-                      </div>
-                      <h3 className="text-xl sm:text-2xl font-bold text-[#333333] mb-3 sm:mb-4">
-                        🔓 UNLOCK COMPLETE REPORT
-                      </h3>
-                      <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">
-                        Get instant access to the full report with uncensored photos and complete conversation history.
-                      </p>
-                    </div>
-
-                    {/* Emergency Timer Card - Added before checkout button */}
-                    <div className="bg-gradient-to-r from-red-500 to-red-600 text-white p-4 sm:p-6 rounded-xl shadow-lg mb-4 sm:mb-6">
-                      <div className="flex items-center justify-center gap-2 sm:gap-3 mb-3">
-                        <AlertTriangle className="w-6 h-6 sm:w-8 sm:h-8 animate-pulse" />
-                        <span className="font-bold text-lg sm:text-xl">THE REPORT WILL BE DELETED IN:</span>
-                      </div>
-                      <div className="text-center mb-3">
-                        <div className="text-3xl sm:text-4xl font-bold mb-2">{formatTime(timeLeft)}</div>
-                      </div>
-                      <p className="text-sm sm:text-base text-center leading-relaxed opacity-90">
-                        After the time expires, this report will be permanently deleted for privacy reasons. This offer
-                        cannot be recovered at a later date.
-                      </p>
-                    </div>
-
-                    {/* Direct Checkout Button - Fixed Text Overflow */} <Button onClick={() => (window.location.href = "https://pay.mundpay.com/0198d33e-0868-7004-89a2-6d018c314d05?ref=")} className="w-full bg-gradient-to-r from-[#FF0066] to-[#FF3333] hover:from-[#FF0066] hover:to-[#FF3333] text-white font-bold py-4 sm:py-6 text-sm sm:text-base md:text-lg rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 mb-4 sm:mb-6 overflow-hidden" > <span className="block text-center leading-tight px-2"> 🔓 UNLOCK MY REPORT - I'M READY FOR THE TRUTH </span> </Button>
-
-                    {/* Final Reassurance */}
-                    <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 sm:p-6 mb-4 sm:mb-6">
-                      <p className="text-sm sm:text-base text-blue-700 font-medium leading-relaxed">
-                        You're not invading privacy - you're protecting your emotional well-being. You have the right to
-                        make informed decisions about your relationship.
-                      </p>
-                    </div>
-
-                    {/* Testimonial */}
-                    <div className="bg-gray-50 rounded-xl p-4 sm:p-6">
-                      <div className="flex items-start gap-3 sm:gap-4">
-                        <img
-                          src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8MHx8fGVufDB8MHx8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-                          alt="Sarah M."
-                          className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover border-2 border-gray-200"
-                        />
-                        <div className="flex-1 text-left">
-                          <div className="mb-2">
-                            <p className="font-bold text-[#333333] text-sm sm:text-base">Sarah M.</p>
-                            <p className="text-xs sm:text-sm text-green-600 font-medium">✓ Verified User</p>
-                          </div>
-                          <p className="text-sm sm:text-base text-gray-600 italic leading-relaxed">
-                            "I wish I had done this months ago. Would have saved me so much anxiety and wasted time."
-                          </p>
-                          <div className="flex items-center text-[#FFD700] text-sm mt-2">
-                            <span>⭐⭐⭐⭐⭐</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-
-                {isProfileModalOpen && selectedProfile && (
-                  <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-                    <div className="bg-white rounded-2xl max-w-md w-full max-h-[90vh] overflow-y-auto">
-                      {/* Header with close button */}
-                      <div className="relative">
+                      <div className="absolute top-1/2 transform -translate-y-1/2 left-2 sm:left-4 z-10">
                         <button
-                          onClick={closeProfileModal}
-                          className="absolute top-4 left-4 z-10 w-10 h-10 bg-white bg-opacity-80 rounded-full flex items-center justify-center shadow-lg"
+                          onClick={prevSlide}
+                          className="bg-black bg-opacity-50 text-white rounded-full w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center hover:bg-opacity-70 transition-colors duration-300"
                         >
-                          <X className="w-5 h-5 text-gray-700" />
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            className="w-4 h-4 sm:w-5 sm:h-5"
+                          >
+                            <path
+                              fillRule="evenodd"
+                              d="M7.72 12.53a.75.75 0 010-1.06l7.5-7.5a.75.75 0 111.06 1.06L9.31 12l6.97 6.97a.75.75 0 11-1.06 1.06l-7.5-7.5z"
+                              clipRule="evenodd"
+                            />
+                          </svg>
                         </button>
-
-                        {/* Profile Image */}
-                        <div className="relative h-96 bg-gray-200 rounded-t-2xl overflow-hidden">
-                          <img
-                            src={selectedProfile.image || "/placeholder.svg"}
-                            alt={selectedProfile.name}
-                            className="w-full h-full object-cover"
-                          />
-
-                          {/* Gradient overlay */}
-                          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/60 to-transparent"></div>
-
-                          {/* Name and basic info overlay */}
-                          <div className="absolute bottom-4 left-4 right-4 text-white">
-                            <div className="flex items-center gap-2 mb-1">
-                              <h2 className="text-3xl font-bold">{selectedProfile.name}</h2>
-                              {selectedProfile.verified && (
-                                <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
-                                  <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                    <path
-                                      fillRule="evenodd"
-                                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                                      clipRule="evenodd"
-                                    />
-                                  </svg>
-                                </div>
-                              )}
-                            </div>
-
-                            <div className="flex items-center gap-4 text-sm opacity-90">
-                              <div className="flex items-center gap-1">
-                                <User className="w-4 h-4" />
-                                <span>{selectedProfile.orientation}</span>
-                              </div>
-                              <div className="flex items-center gap-1">
-                                <MapPin className="w-4 h-4" />
-                                <span>{selectedProfile.location}</span>
-                              </div>
-                            </div>
-
-                            <div className="flex items-center gap-1 text-sm opacity-90 mt-1">
-                              <MapPin className="w-4 h-4" />
-                              <span>{selectedProfile.distance}</span>
-                            </div>
-                          </div>
-                        </div>
                       </div>
 
-                      {/* Profile Content */}
-                      <div className="p-6 space-y-6">
-                        {/* About Me Section */}
-                        <div>
-                          <h3 className="text-xl font-bold text-gray-900 mb-3">About Me</h3>
-                          <p className="text-gray-700 leading-relaxed">{selectedProfile.bio}</p>
-                        </div>
-
-                        {/* Personality Tags */}
-                        {selectedProfile.personality && (
-                          <div>
-                            <div className="flex flex-wrap gap-2">
-                              {selectedProfile.personality.map((tag: string, index: number) => (
-                                <span
-                                  key={index}
-                                  className="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm border border-gray-300"
-                                >
-                                  {tag}
-                                </span>
-                              ))}
-                            </div>
-                          </div>
-                        )}
-
-                        {/* My Interests Section */}
-                        {selectedProfile.interests && (
-                          <div>
-                            <h3 className="text-xl font-bold text-gray-900 mb-3">My Interests</h3>
-                            <div className="flex flex-wrap gap-2">
-                              {selectedProfile.interests.map((interest: string, index: number) => (
-                                <span
-                                  key={index}
-                                  className="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm border border-gray-300"
-                                >
-                                  {interest}
-                                </span>
-                              ))}
-                            </div>
-                          </div>
-                        )}
-
-                        {/* Action Buttons */}
-                        <div className="flex gap-4 pt-4">
-                          <button className="flex-1 bg-gray-200 text-gray-700 py-3 rounded-full font-semibold hover:bg-gray-300 transition-colors">
-                            Pass
-                          </button>
-                          <button className="flex-1 bg-gradient-to-r from-pink-500 to-red-500 text-white py-3 rounded-full font-semibold hover:bg-pink-600 hover:to-red-600 transition-colors">
-                            Like
-                          </button>
-                        </div>
+                      <div className="absolute top-1/2 transform -translate-y-1/2 right-2 sm:right-4 z-10">
+                        <button
+                          onClick={nextSlide}
+                          className="bg-black bg-opacity-50 text-white rounded-full w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center hover:bg-opacity-70 transition-colors duration-300"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            className="w-4 h-4 sm:w-5 sm:h-5"
+                          >
+                            <path
+                              fillRule="evenodd"
+                              d="M16.28 11.47a.75.75 0 010 1.06l-7.5 7.5a.75.75 0 01-1.06-1.06L14.69 12 7.72 5.03a.75.75 0 011.06-1.06l7.5 7.5z"
+                              clipRule="evenodd"
+                            />
+                          </svg>
+                        </button>
                       </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                {/* Time Left Section */}
+                <div className="bg-white rounded-2xl shadow-lg p-4 sm:p-6 mb-6 sm:mb-8">
+                  <div className="flex items-center justify-between mb-4 sm:mb-6">
+                    <h3 className="text-lg sm:text-xl font-bold text-[#333333]">
+                      ⏳ TIME LEFT TO UNLOCK FULL REPORT
+                    </h3>
+                    <div className="text-red-500 font-bold text-base sm:text-lg">
+                      {formatTime(timeLeft)}
                     </div>
                   </div>
-                )}
+
+                  <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">
+                    Unlock the complete report to see screenshots of all active profiles, recent conversations, and
+                    exact locations.
+                  </p>
+
+                  {/* CTA Button - Fixed Text Overflow */}
+                  <Button
+                    onClick={() => setCurrentStep("offer")}
+                    className="w-full bg-gradient-to-r from-[#FF0066] to-[#FF3333] hover:from-[#FF0066] hover:to-[#FF3333] text-white font-bold py-3 sm:py-4 text-sm sm:text-base md:text-lg rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 overflow-hidden flex items-center justify-center text-center"
+                  >
+                    <span className="block text-center leading-tight px-2 break-words whitespace-normal">
+                      🔓 UNLOCK FULL REPORT - SEE EVERYTHING NOW
+                    </span>
+                  </Button>
+                </div>
+
+                {/* Reassurance */}
+                <div className="text-center">
+                  <p className="text-xs sm:text-sm text-gray-500 flex items-center justify-center gap-2 font-medium">
+                    <Shield className="w-4 h-4" />
+                    100% anonymous - They'll never know you checked
+                  </p>
+                </div>
               </div>
             </motion.div>
           )}
 
           {/* Offer Page */}
           {currentStep === "offer" && (
-            <motion.div key="offer" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="min-h-screen bg-gradient-to-br from-[#1C2833] to-[#6C63FF] px-4 py-6 sm:py-8" >
-              <div className="container mx-auto max-w-2xl">
-                <Card className="bg-white rounded-2xl shadow-lg border-0">
+            <motion.div
+              key="offer"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="min-h-screen bg-gradient-to-br from-[#1C2833] to-[#6C63FF] px-4 py-6 sm:py-8"
+            >
+              <div className="container mx-auto max-w-md">
+                <Card className="bg-white rounded-2xl shadow-2xl border-0 overflow-hidden">
                   <CardContent className="p-6 sm:p-8 text-center">
                     {/* Header */}
                     <div className="mb-6 sm:mb-8">
-                      <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-r from-red-500 to-pink-600 rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 shadow-lg">
-                        <Heart className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
+                      <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-r from-[#FF0066] to-[#FF3333] rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 shadow-lg">
+                        <Lock className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
                       </div>
-                      <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#333333] mb-3 sm:mb-4"> You Deserve to Know the Whole Truth </h1>
-                      <p className="text-base sm:text-lg text-gray-600 mb-4 sm:mb-6 leading-relaxed"> Stop wondering. Stop losing sleep. Get every detail - completely confidential. </p>
-                      <div className="bg-gradient-to-r from-red-50 to-pink-50 border-2 border-red-200 rounded-xl p-4 sm:p-6">
-                        <p className="text-sm sm:text-base text-red-700 font-semibold leading-relaxed"> Your instincts were right. Now see exactly what they've been hiding while looking you in the eye and lying. </p>
-                      </div>
+                      <h2 className="text-xl sm:text-2xl font-bold text-[#333333] mb-3 sm:mb-4">
+                        🔒 Unlock Full Access Now
+                      </h2>
+                      <p className="text-sm sm:text-base text-gray-600 font-medium">
+                        Get instant access to the complete report and uncover the truth.
+                      </p>
                     </div>
 
-                    {/* Price Section */}
-                    <div className="mb-6 sm:mb-8">
-                      <div className="flex items-center justify-center gap-4 sm:gap-6 mb-4 sm:mb-6">
-                        <div className="text-2xl sm:text-3xl text-gray-400 line-through">$47.00</div>
-                        <div className="text-4xl sm:text-5xl font-bold text-[#FF0066]">$17.00</div>
+                    {/* Price */}
+                    <div className="bg-gray-50 rounded-xl p-4 sm:p-6 mb-6 sm:mb-8">
+                      <div className="text-4xl sm:text-5xl font-bold deepcheck-text mb-2">
+                        $17
                       </div>
-                      <div className="inline-flex items-center gap-2 bg-gradient-to-r from-red-500 to-pink-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full text-sm sm:text-base font-bold mb-4"> 🔥 62% OFF - LIMITED TIME </div>
-                      <p className="text-sm sm:text-base text-gray-600 font-medium"> One-time payment for lifetime access to your complete report </p>
+                      <p className="text-xs sm:text-sm text-gray-500 font-medium">
+                        One-time payment for unlimited access
+                      </p>
                     </div>
 
-                    {/* What You'll Unlock */}
-                    <div className="text-left mb-6 sm:mb-8">
-                      <h3 className="text-lg sm:text-xl font-bold text-[#333333] mb-4 sm:mb-6 text-center"> What You'll Unlock: </h3>
-                      <div className="space-y-3 sm:space-y-4">
-                        <div className="flex items-start gap-3 sm:gap-4">
-                          <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-green-500 flex-shrink-0 mt-1" />
-                          <span className="text-sm sm:text-base text-gray-700 font-medium"> Every Single Profile Photo (including ones they think you'll never see) </span>
-                        </div>
-                        <div className="flex items-start gap-3 sm:gap-4">
-                          <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-green-500 flex-shrink-0 mt-1" />
-                          <span className="text-sm sm:text-base text-gray-700 font-medium"> Complete Conversation History (see exactly what they're telling other people) </span>
-                        </div>
+                    {/* Features */}
+                    <div className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
+                      <div className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 bg-gray-50 rounded-xl">
+                        <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-green-500" />
+                        <span className="text-xs sm:text-sm text-gray-700 font-medium">
+                          Screenshots of all active profiles
+                        </span>
                       </div>
-                    </div>
-
-                  </CardContent>
-                </Card>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
-    </div>
-  )
-}
+                      <div className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 bg-gray-50 rounded-xl">
+                        <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-green-500" />
+                        <span className="text-xs sm:text-sm text-gray-700 font-medium">
+                          Recent conversations and what they're saying
+                        </span>
+                      </div>
+                      <div className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 bg-gray-50 rounded-xl">
+                        <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-green-500" />
+                        <span className="text-xs sm:text-sm text-gray-700 font-medium">
+                          Exact locations where they've been swiping
+                        </span>
+                      </div>
+                      <div className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 bg-gray-5\
